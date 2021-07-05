@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Indeed mais en mieux 2021{% endblock %}
+
+{% block body %}
+
+{% include "components/_navbar.html.twig" %};
+
+<div class="container">
+    <div class="row mt-5">
+        {% for offer in offer_list %}
+            <div class="col-md-3">
+                <div class="card"> 
+                    <img src="{{ offer.image}}" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <a href="/offer">
+                            <h2 class="card-title fs-5 text-center">{{ offer.title | upper}}</h2>
+                            <ul>
+                            <li>{{ offer.city }}</li> 
+                            <li>{{ offer.contract }}</li> 
+                            <li>{{ offer.duration }}</li> 
+                            </ul>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
